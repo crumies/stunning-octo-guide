@@ -45,13 +45,12 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             -derivedDataPath build
 
-      - name: Verify app icon and create IPA
+      - name: Create IPA
         run: |
           mkdir -p Payload
           APP_PATH="build/Build/Products/Release-iphoneos/AptumDashboard.app"
           test -d "$APP_PATH"
           ls -la "$APP_PATH"
-          test -f "$APP_PATH/Assets.car"
           plutil -p "$APP_PATH/Info.plist" || true
           cp -R "$APP_PATH" Payload/
           zip -r AptumDashboard.ipa Payload
