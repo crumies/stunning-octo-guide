@@ -1,0 +1,70 @@
+name: AptumDashboard
+
+options:
+  bundleIdPrefix: com.crumies
+  deploymentTarget:
+    iOS: "16.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+
+targets:
+  AptumDashboard:
+    type: application
+    platform: iOS
+
+    sources:
+      - path: Sources
+
+    resources:
+      - path: Assets.xcassets
+
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: Aptum Dashboard
+        CFBundleIdentifier: com.crumies.AptumDashboard
+        CFBundleShortVersionString: "4.3"
+        CFBundleVersion: "43"
+        UILaunchScreen: {}
+        NSBluetoothAlwaysUsageDescription: This app uses Bluetooth to connect to the DUNEN controller.
+        NSLocationWhenInUseUsageDescription: This app does not use GPS for dashboard speed.
+        NSMotionUsageDescription: This app does not use phone motion sensors.
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        UISupportsDocumentBrowser: true
+        NSSupportsLiveActivities: true
+        CFBundleIconName: AppIcon
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.crumies.AptumDashboard
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Manual
+
+
+  AptumDashboardWidget:
+    type: app-extension
+    platform: iOS
+
+    sources:
+      - path: Widget
+      - path: Sources/LiveActivityModels.swift
+      - path: Sources/Models.swift
+
+    info:
+      path: WidgetInfo.plist
+      properties:
+        CFBundleDisplayName: Aptum Dashboard Live
+        CFBundleIdentifier: com.crumies.AptumDashboard.Widget
+        CFBundleShortVersionString: "4.3"
+        CFBundleVersion: "43"
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.widgetkit-extension
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.crumies.AptumDashboard.Widget
+        CODE_SIGN_STYLE: Manual

@@ -1,0 +1,27 @@
+import UIKit
+import AudioToolbox
+import SwiftUI
+
+@main
+struct AptumDashboardApp: App {
+    @StateObject private var ble = DunenBLEManager()
+    @StateObject private var tuning = TuningStore()
+    @StateObject private var settings = AppSettings()
+
+    var body: some Scene {
+        WindowGroup {
+            RootView()
+                .environmentObject(ble)
+                .environmentObject(tuning)
+                .environmentObject(settings)
+                .preferredColorScheme(settings.colorScheme)
+                .onAppear {
+                    if settings.hapticsEnabled { UIImpactFeedbackGenerator(style: .soft).impactOccurred() }
+                    if settings.startupSound { AudioServicesPlaySystemSound(1104) }
+                    ble.attachTuningStore(tuning)
+                    ble.attachSettings(settings)
+                    tuning.loadLocalBackup()
+                }
+        }
+    }
+}
