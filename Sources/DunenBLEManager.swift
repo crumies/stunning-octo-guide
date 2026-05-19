@@ -369,13 +369,13 @@ final class DunenBLEManager: NSObject, ObservableObject {
 
     private func updateLiveActivityIfNeeded() {
         guard settings?.liveActivityEnabled == true else {
-            if #available(iOS 16.1, *) {
+            if #available(iOS 16.2, *) {
                 LiveActivityManager.shared.end()
             }
             return
         }
 
-        if #available(iOS 16.1, *) {
+        if #available(iOS 16.2, *) {
             LiveActivityManager.shared.startIfNeeded(vehicleName: connectedName ?? "Aptum", telemetry: telemetry)
         }
     }

@@ -379,6 +379,7 @@ struct RideRecordingCard: View {
 
 struct FullscreenHUD: View {
     @EnvironmentObject var ble: DunenBLEManager
+    @EnvironmentObject var settings: AppSettings
     @Environment(\.dismiss) var dismiss
 
     var body: some View {

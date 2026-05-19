@@ -3,7 +3,7 @@ import Foundation
 #if canImport(ActivityKit)
 import ActivityKit
 
-@available(iOS 16.1, *)
+@available(iOS 16.2, *)
 final class LiveActivityManager {
     static let shared = LiveActivityManager()
     private var activity: Activity<AptumRideAttributes>?

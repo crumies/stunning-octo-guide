@@ -4,7 +4,7 @@ import SwiftUI
 #if canImport(ActivityKit)
 import ActivityKit
 
-@available(iOS 16.1, *)
+@available(iOS 16.2, *)
 struct AptumRideLiveActivityWidget: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: AptumRideAttributes.self) { context in
@@ -67,7 +67,7 @@ struct AptumRideLiveActivityWidget: Widget {
 
 struct AptumDashboardWidgetBundle: WidgetBundle {
     var body: some Widget {
-        if #available(iOSApplicationExtension 16.1, *) {
+        if #available(iOSApplicationExtension 16.2, *) {
             AptumRideLiveActivityWidget()
         }
     }

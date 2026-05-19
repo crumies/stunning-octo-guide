@@ -19,3 +19,9 @@ Important:
 - Delete the old app from iPhone before installing the new IPA.
 - If iOS caches the old icon, reboot the phone after installing.
 - Live Activity requires iOS 16.1+ and needs the widget extension target built with the app.
+
+
+Build fix:
+- Added AppSettings environment object inside FullscreenHUD.
+- Changed ActivityKit availability to iOS 16.2+.
+- Deployment target changed to iOS 16.2 because Live Activity APIs require it in this build setup.
