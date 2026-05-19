@@ -395,9 +395,10 @@ struct FullscreenHUD: View {
                 VStack(spacing: 8) {
                     HUDBlock(fullscreenButton: {}, compact: true)
                         .frame(maxWidth: 430)
-                    if settings.hudShowGraphs { GraphPanel(fullscreenButton: {}, compact: true) }
-                        .frame(maxWidth: 430)
-                }
+                   if settings.hudShowGraphs {
+    GraphPanel(fullscreenButton: {}, compact: true)
+        .frame(maxWidth: 430)
+}
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 14)
                 .padding(.top, 58)
